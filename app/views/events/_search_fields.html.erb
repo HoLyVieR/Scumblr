@@ -28,8 +28,8 @@
 <% end %>
 
 
-<%= label_tag do %>Result Filter
-  <%= f.collection_select :eventable_id_in_saved_result_filter, (SavedFilter.where(saved_filter_type: "Result", user_id:current_user)+SavedFilter.where(saved_filter_type: "Result", public:true)).uniq, :id, :name, include_blank: true %>
+<%= label_tag do %>Event Filter
+  <%= f.collection_select :eventable_id_in_saved_result_filter, (SavedFilter.where(saved_filter_type: "Event", user_id:current_user)+SavedFilter.where(saved_filter_type: "Event", public:true)).uniq, :id, :name, include_blank: true %>
 <% end %>
 
 
