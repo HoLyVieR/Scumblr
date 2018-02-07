@@ -23,8 +23,8 @@
   <%= f.collection_select :tasks_id_in, Task.all, :id, :name, {}, {class: "select2",:multiple=>true} %>
 <% end %>
 
-<%= label_tag do %>Event Filter
-  <%= select_tag "q[id_in_saved_event_filter]" ,options_from_collection_for_select((SavedFilter.where(saved_filter_type: "Event", user_id:current_user)+SavedFilter.where(saved_filter_type: "Event", public:true)).uniq, :id, :name, params.try(:[],:q).try(:[],:id_in_saved_event_filter)), {include_blank: true} %>
+<%= label_tag do %>Result Filter
+  <%= select_tag "q[id_in_saved_event_filter]" ,options_from_collection_for_select((SavedFilter.where(saved_filter_type: "Result", user_id:current_user)+SavedFilter.where(saved_filter_type: "Result", public:true)).uniq, :id, :name, params.try(:[],:q).try(:[],:id_in_saved_event_filter)), {include_blank: true} %>
 <% end %>
 
 <%= label_tag do %>Metadata <span data-tooltip aria-haspopup="true" class="has-tip tip-left" title="Searches metadata fields. Examples:<br/>status_code==200 # Matches: {status_code: 200}<br/>result:version > 1 # Matches {result: {version: 2}}<br/>content:length # Matches {content: {length: 10}}<br/>March 1st 10:05pm<br/>10/15/2010<br/>!vulnerabilities # Matches {vulnerabilities: null} or missing vulnerabilities key<br/>"><i class="fi-info"></i></span>
